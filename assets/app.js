@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-var animals = ["Tiger", "Whale", "Dolphin", "Eagle"];
+var animalsArray = ["Tiger", "Whale", "Dolphin", "Eagle"];
 
 
 
@@ -8,14 +8,13 @@ function createButton() {
 
     $("#animalButton").empty();
 
-    for(var i=0; i < animals.length; i++){
+    for(var i=0; i < animalsArray.length; i++){
         var animalButton= $("<button>");
         animalButton.addClass("btn btn-success animalBtn");
-        animalButton.attr("data-name", animals[i]);
-        animalButton.text(animals[i]);
+        animalButton.attr("data-name", animalsArray[i]);
+        animalButton.text(animalsArray[i]);
         animalButton.appendTo("#animalButton");
     };
-    console.log(animals)
 };
 
 createButton();
@@ -23,18 +22,26 @@ createButton();
 
 
 $("#animalSubmitButton").on("click", function(e){
+    // prevent form submit
     e.preventDefault();
+
+
+    // prevents empty form/empty buttons
     var emptyInput = $("#userInput").val();
     if (emptyInput == "") {
         alert("Enter an Animal");
             return false;
         };
 
+
+
     var animal = $("#userInput").val().trim();
-    animals.push(animal);
+    animalsArray.push(animal);
 
     createButton();
     
+
+    // clears form after submission
     $("#animalForm")[0].reset();
 
 });
@@ -47,7 +54,7 @@ $(".animalBtn").on("click", function() {
 
     var animal = $(this).attr("data-name");
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=ixnZc1EjQv9Is2gTP7UhpXDZhKn9DeeS";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=ixnZc1EjQv9Is2gTP7UhpXDZhKn9DeeS&limit=3";
 
     $.ajax({
         url: queryURL,
