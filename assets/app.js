@@ -122,13 +122,8 @@ $(document).ready(function(){
       }
     };
 
-  $(document).on("click", ".image-gifs", gifAnimation);
-
     
-    
-    
-    
-    
+          $(document).on("click", ".image-gifs", gifAnimation);
     
     
     });
