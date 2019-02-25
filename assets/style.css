@@ -32,23 +32,26 @@ label{
     letter-spacing: 1px;
 }
 
-.intro{
+.intro-container{
     height: 75px;
-    line-height: 75px;
     background-color:black;
-    color:white;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
-	display: block;
-	background-color: black;
+    max-width: 100%;
+    margin: auto;
+    position: absolute;
+    top: 350px;
+    display: flex;
+}
+
+.intro{
+    margin: auto; /* Important */ 
+    text-align: center; 
+    color:white;
 	font-family: 'Oxygen', sans-serif;
 	font-weight: 400;
 	font-size: 14px;
 	letter-spacing: 1.5px;
-	text-align: center;
-	width: 100%;
-	position: absolute;
-	top: 350px;
 }
 
 .btn{
@@ -69,6 +72,10 @@ label{
 .individual-gifs {
     float: left;
     margin: 30px;
+}
+
+.image-gifs:hover{
+    cursor: pointer;
 }
 
 .rating-text{
